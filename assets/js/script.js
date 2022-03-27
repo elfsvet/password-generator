@@ -1,17 +1,17 @@
 // Assignment code here
 
-// all characters what we can use
+// all characters what we can use in an object or i can make arrays it would be better performance
 var charactersType = {
   upperCase: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
   lowerCase: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
   numbers: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
   specialCharacters: ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '+', '-', '.', '~', '|', '<', '>', '=', '-', '_', '/', ':', ';', '?', '[', ']', '{', '}', '~']
-}
+};
 
 // choose a random character from an array/ needs provide an array as an argument
 var randomCharacterFromArray = function (array) {
   return array[Math.floor(Math.random() * array.length)];
-}
+};
 // a choice of a single character from an array
 var randomUpperCase = randomCharacterFromArray(charactersType.upperCase);
 var randomLowerCase = randomCharacterFromArray(charactersType.lowerCase);
@@ -24,16 +24,10 @@ var randomSpecialCharacter = randomCharacterFromArray(charactersType.specialChar
 // var randomNum = randomNumber(0,10);
 // var randomSpecialCharacter = randomCharacterFromArray(charactersType.specialCharacters);
 
-var addToArray = function (arrayToUpdate, answer, arrayToAdd) {
-  if (answer) {
-    arrayToUpdate = arrayToUpdate.concat(arrayToAdd);
-  }
-  return arrayToUpdate;
-}
 
 
 var chooseConfirm = function () {
-
+  debugger;
   // we need generate an array with all accepted characters/letters/numbers
   var arrayOfCharacters = [];
   // confirm if a user wants: uppercase
@@ -47,27 +41,37 @@ var chooseConfirm = function () {
   // if all answers No a user need to choose at least one option to have a password
   if (!upperCaseAnswer && !lowerCaseAnswer && !numberAnswer && !specialCharactersAnswer) { // we might try while later!!!!!!!!!!!
     window.alert("You need to choose at least one option, or you will not get anything.");
-    debugger;
+    // debugger;
     chooseConfirm();
   } else {
+    // DRY
+    var addToArray = function (answer, arrayToAdd) {
+      if (answer) {
+        arrayOfCharacters = arrayOfCharacters.concat(arrayToAdd);
+      }
+      return arrayOfCharacters;
+    };
     // if answer of a user OK updates array and return it for future random pull from it.
-    if (upperCaseAnswer) {
-      arrayOfCharacters = addToArray(arrayOfCharacters, upperCaseAnswer, charactersType.upperCase);
-    }
-    if (lowerCaseAnswer) {
-      arrayOfCharacters = addToArray(arrayOfCharacters, lowerCaseAnswer, charactersType.lowerCase);
-    }
-    if (numberAnswer) {
-      arrayOfCharacters = addToArray(arrayOfCharacters, numberAnswer, charactersType.numbers);
-    }
-    if (specialCharactersAnswer) {
-      arrayOfCharacters = addToArray(arrayOfCharacters, specialCharactersAnswer, charactersType.specialCharacters);
-    }
+    // if (upperCaseAnswer) {
+      //   arrayOfCharacters = addToArray(arrayOfCharacters, upperCaseAnswer, charactersType.upperCase);
+      // }
+      // if (lowerCaseAnswer) {
+        //   arrayOfCharacters = addToArray(arrayOfCharacters, lowerCaseAnswer, charactersType.lowerCase);
+        // }
+        // if (numberAnswer) {
+          //   arrayOfCharacters = addToArray(arrayOfCharacters, numberAnswer, charactersType.numbers);
+          // }
+          // if (specialCharactersAnswer) {
+            //   arrayOfCharacters = addToArray(arrayOfCharacters, specialCharactersAnswer, charactersType.specialCharacters);
+            // }
+            
+    arrayOfCharacters = addToArray(upperCaseAnswer, charactersType.upperCase);
+    arrayOfCharacters = addToArray(lowerCaseAnswer, charactersType.lowerCase);
+    arrayOfCharacters = addToArray(numberAnswer, charactersType.numbers);
+    arrayOfCharacters = addToArray(specialCharactersAnswer, charactersType.specialCharacters);
   }
-
-
-  console.log(arrayOfCharacters)
-  //something weird is going on. return runs and returns back to its position 
+  console.log(arrayOfCharacters); // prints correct array.
+  //something weird is going on. return runs and returns back to its position  jumps back to return with no values of the true what i input before.RIGHT HERE
   return arrayOfCharacters;
   // return the array we will pick up our characters from
 };
