@@ -58,7 +58,7 @@ To do:
 
 ## Acknowledgements
 - This project was inspired by UM Coding Boot Camp
-- This project was using [thit starter code](https://github.com/coding-boot-camp/urban-octo-telegram)
+- This project was using [this starter code](https://github.com/coding-boot-camp/friendly-parakeet)
 
 ## Contact
 Created by [@elfsvet](https://github.com/elfsvet)
