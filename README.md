@@ -52,7 +52,7 @@ Project is: _complete_
 
 ## Room for Improvement
 To do:
-- We can ask how many characters of specific type characters a user wants. (For example: 5 of Uppercase 3of lowercase 2 special characters...etc.)
+- We can ask how many characters of specific type characters a user wants. (For example: 5 of Uppercase 3 of lowercase 2 special characters...etc.)
 - We can add a quick option to copy the result.
 
 ## Acknowledgements
