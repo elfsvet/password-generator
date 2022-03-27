@@ -1,5 +1,5 @@
 # password-generator
-// DOWNBELOW NEEDS TO BE CHANGED
+
 > Password generator project. A website with a code generator.
 > Live demo [_here_](https://elfsvet.github.io/password-generator/). 
 
