@@ -1,6 +1,6 @@
 # Stepan's password-generator
 
-> Password generator project. A website with a code generator.
+> Password generator project. A website with a password generator.
 > Live demo [_here_](https://elfsvet.github.io/stepan-matysik-password-generator/). 
 
 ## Table of contents
