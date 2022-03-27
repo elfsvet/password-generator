@@ -1,5 +1,7 @@
 // Assignment code here
-// all characters what we can use in an object or i can make arrays it would be better performance
+
+// all characters what we can use for the password. I created an object.I might make arrays, it would be better performance.
+
 var charactersType = {
   upperCase: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
   lowerCase: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
@@ -7,29 +9,39 @@ var charactersType = {
   specialCharacters: ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '+', '-', '.', '~', '|', '<', '>', '=', '-', '_', '/', ':', ';', '?', '[', ']', '{', '}', '~']
 };
 
-// choose a random character from an array/it needs to provide an array as an argument
+// choose a random character from an array/it needs an array as an argument
+
 var randomCharacterFromArray = function (array) {
   return array[Math.floor(Math.random() * array.length)];
 };
 
 var chooseConfirm = function () {
-  
-  // we need generate an array with all accepted characters/letters/numbers
-  var arrayOfCharacters = [];
-  // confirm if a user wants: uppercase
-  var confirmUpperCase = confirm("Do you want your password to contain Uppercase letters?");
-  // confirm if a user wants: lowercase
-  var confirmLowerCase = confirm("Do you want your password to contain Lowercase letters?");
-  // confirm if a user wants: numbers
-  var confirmNumbers = confirm("Do you want your password to contain numbers?");
-  // confirm if a user wants: special characters
-  var confirmSpecialCharacters = confirm("Do you want your password to contain special characters?");
-  
-  // if all answers No a user need to choose at least one option to have a password
-  if (!confirmUpperCase && !confirmLowerCase && !confirmNumbers && !confirmSpecialCharacters) { // we might try while later!!!!!!!!!!!
-    window.alert("You need to choose at least one option, or you will not get anything.");
-    chooseConfirm();// if we mute it, all works perfectly
 
+  // we need generate an array with all accepted characters/letters/numbers
+  
+  var arrayOfCharacters = [];
+
+  // we created all variables here to get answers from getConfirm() function.
+
+  var confirmUpperCase = "";
+  var confirmLowerCase = "";
+  var confirmNumbers = "";
+  var confirmSpecialCharacters = "";
+  var getConfirm = function () {
+      // confirm if a user wants: uppercase
+    confirmUpperCase = confirm("Do you want your password to contain Uppercase letters?"),
+    // confirm if a user wants: lowercase
+    confirmLowerCase = confirm("Do you want your password to contain Lowercase letters?"),
+    // confirm if a user wants: numbers
+    confirmNumbers = confirm("Do you want your password to contain numbers?"),
+    // confirm if a user wants: special characters
+    confirmSpecialCharacters = confirm("Do you want your password to contain special characters?");
+  }
+  getConfirm();
+  // if all answers No a user need to choose at least one option to have a password
+  while (!confirmUpperCase && !confirmLowerCase && !confirmNumbers && !confirmSpecialCharacters) { // we might try while later!!!!!!!!!!!
+    window.alert("You need to choose at least one option, or you will not get anything.");
+    getConfirm();
   }
   // DRY
   var addToArray = function (answer, arrayToAdd) {
@@ -55,15 +67,16 @@ var generatePassword = function () {
   // ask what the length a user wants their password to be. From 8 - 128 characters and check if user entered numbers if it's something else it will return NaN, and float will be whole number/ does wrong with fractions MAY NEED TO USE A RULE WITH USING '/'
   var lengthOfPassword = parseInt(window.prompt("How many characters would you like your password to be?\nChoose between 8 and 128 characters."));
   // if a user did not input any information or the 8>length of password>128
-  if (!lengthOfPassword || lengthOfPassword < 8 || lengthOfPassword > 128) {
+  while (!lengthOfPassword || lengthOfPassword < 8 || lengthOfPassword > 128) {
     window.alert("Wrong input, try again.");
-    generatePassword(); // if we mute it, all works perfectly
-  } else { // if all correct with input for the length.
-    var answer = [];
-    answer = chooseConfirm();
-    for (var i = 0; i < lengthOfPassword; i++) {
-      readyPassword += randomCharacterFromArray(answer);
-    }
+    lengthOfPassword = parseInt(window.prompt("How many characters would you like your password to be?\nChoose between 8 and 128 characters."));
+    // generatePassword(); // if we mute it, all works perfectly
+  }
+
+  var answer = [];
+  answer = chooseConfirm();
+  for (var i = 0; i < lengthOfPassword; i++) {
+    readyPassword += randomCharacterFromArray(answer);
   }
   return readyPassword;
 };

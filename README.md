@@ -32,8 +32,8 @@ Project is created with:
 To open this project in vscode using git in Terminal/Git Bash:
 
 ```
-$ cd ../Horiseon
-$ git clone https://github.com/elfsvet/horiseon.git
+$ cd ../
+$ git clone 
 $ code .
 ```
 
@@ -42,7 +42,7 @@ $ code .
 - Title of images
 - Alternative information for an image
 ## Screenshots
-![Example screenshot](./assets/images/digital-marketing-meeting.jpg)
+![Example screenshot](./assets/images/screenshot.jpg)
 
 
 ## Usage
@@ -53,8 +53,8 @@ Project is: _complete_
 
 ## Room for Improvement
 To do:
-- Need to have a privacy policy page.
-- Have more interactive right bar.
+- We can ask how many characters of specific type a user wants.
+- We can add a quick option to copy the result.
 
 ## Acknowledgements
 - This project was inspired by UM Coding Boot Camp
