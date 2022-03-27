@@ -1,7 +1,7 @@
 # password-generator
 // DOWNBELOW NEEDS TO BE CHANGED
-> Horiseon project. A website with some information.
-> Live demo [_here_](https://elfsvet.github.io/horiseon/). 
+> Password generator project. A website with a code generator.
+> Live demo [_here_](https://elfsvet.github.io/password-generator/). 
 
 ## Table of contents
 * [General info](#general-info)
@@ -20,12 +20,13 @@
 
 ## General Info
 This project is simply a webpage.
-It demonstrates a company and its point of view on web development.
+It provides a simple option of generating a password with curtain criteria.
 
 ## Technologies
 Project is created with:
 - HTML
 - CSS
+- JavaScript
 
 ## Setup
 To open this project in vscode using git in Terminal/Git Bash:
